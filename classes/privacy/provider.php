@@ -15,19 +15,27 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * enrol_prereq2 file.
+ * Privacy Subsystem implementation for enrol_prereq2.
  *
  * @package    enrol_prereq2
  * @copyright  2026 LMS-Labs
  * @license    http://www.gnu.org/licenses/gpl-3.0.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+namespace enrol_prereq2\privacy;
 
-$observers = array(
-    [
-        'eventname'   => '\core\event\course_updated',
-        'callback'    => '\enrol_prereq2\observer::course_updated',
-        'internal'    => false,
-    ],
-);
+/**
+ * Privacy Subsystem for enrol_prereq2 implementing null_provider.
+ *
+ * @package enrol_prereq2
+ */
+class provider implements \core_privacy\local\metadata\null_provider {
+    /**
+     * Returns a reason why no user data is stored.
+     *
+     * @return string
+     */
+    public static function get_reason(): string {
+        return 'privacy:metadata';
+    }
+}
