@@ -470,6 +470,37 @@ class enrol_prereq2_plugin extends enrol_plugin {
         // Returning false means the delete icon won’t be shown in the enrol methods list.
         return true;
     }
+
+    /**
+     * Allow manual unenrolment of a user from a prereq2 instance.
+     *
+     * The parent enrol_plugin returns false by default, which makes
+     * /enrol/unenroluser.php raise 'canntunenrol' — the error support staff
+     * hit when trying to correct a stale enrolment through the admin UI.
+     * The unenrol action itself is already offered in
+     * get_user_enrolment_actions() and gated on the enrol/prereq2:unenrol
+     * capability, so returning true here simply lets that action complete.
+     *
+     * @param stdClass $instance course enrol instance
+     * @return bool
+     */
+    public function allow_unenrol(stdClass $instance) {
+        return true;
+    }
+
+    /**
+     * Allow editing of an individual user enrolment (status / dates) via the UI.
+     *
+     * Mirrors allow_unenrol(): the edit action is already offered and
+     * capability-gated in get_user_enrolment_actions(); without this the
+     * parent default of false blocks it.
+     *
+     * @param stdClass $instance course enrol instance
+     * @return bool
+     */
+    public function allow_manage(stdClass $instance) {
+        return true;
+    }
     // Add custom fields into the course settings form
     public function course_edit_form($instance, MoodleQuickForm $mform, $data, $context) {
         global $DB;
