@@ -57,3 +57,10 @@ $string['pilotcohorts']      = 'Pilot cohorts (optional)';
 $string['pilotcohorts_desc'] = 'Comma-separated cohort IDs to limit the sync during rollout. Empty = all cohorts.';
 
 $string['privacy:metadata'] = 'The enrol_prereq2 plugin does not store any personal data.';
+
+// Stranded-version self-repair (legacy 13-digit numbering fault).
+$string['versionrepair_title'] = 'Repair recorded plugin version';
+$string['versionrepair_done'] = 'Recorded version corrected from {$a->from} to {$a->to}. Moodle can now upgrade this plugin normally.';
+$string['versionrepair_notneeded'] = 'Nothing to repair — the recorded version already matches the installed files.';
+$string['versionrepair_next'] = 'Now go to Site administration → Notifications and run the upgrade. It will bring the plugin up to the version of the files already installed, and apply anything this site had missed.';
+$string['versionrepair_gotonotifications'] = 'Go to Notifications';
