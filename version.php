@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2026080700001;
+$plugin->version   = 2026080700;
 $plugin->requires  = 2020061500; // Moodle 3.9+
 $plugin->component = 'enrol_prereq2';
 $plugin->maturity  = MATURITY_STABLE;
